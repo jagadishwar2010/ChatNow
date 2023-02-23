@@ -1,0 +1,36 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+
+    <main>
+        <form method="post" action="">
+            {% csrf_token %}
+            <h2>Signup Form</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password1" name="password1" placeholder="Enter your password">
+
+            <label for="password">Repeat Password:</label>
+            <input type="password" id="password2" name="password2" placeholder="Repeat your password">
+
+            <button type="submit">Submit</button>
+
+            {% if form.errors %}
+                <div class="errors">
+                    <h3>Please correct the following errors:</h3>
+                    <ul>
+                        {% for field_errors in form.errors.values %}
+                            {% for error in field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </form>
+    </main>
+{% endblock content %}
