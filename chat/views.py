@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
 from django.contrib.auth import login
@@ -11,12 +12,16 @@ def front_page(request):
 
 def sign_up(request):
     if request.method == 'POST':
-        # return HttpResponse(request)
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('front_page')
+        else:
+            # handle form validation errors
+            for field in form:
+                for error in field.errors:
+                    messages.error(request, f"{field.label} : {error}")
 
     else:
         form = SignUpForm
