@@ -1,1 +1,1 @@
-"# ChatNow" 
+ChatNow - Group Chat Web app 
