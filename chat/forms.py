@@ -41,3 +41,8 @@ class SignUpForm(UserCreationForm):
         if password1 and password2 and password1 != password2:
             self.add_error('password2', 'Passwords do not match.')
         return cleaned_data
+
+
+class LoginForm(UserCreationForm):
+    model = User
+    fields = ['username', 'password']

@@ -1,7 +1,8 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
-from django.contrib.auth import login
+from .forms import LoginForm
+from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 
 
@@ -27,3 +28,18 @@ def sign_up(request):
         form = SignUpForm
 
     return render(request, 'chat/signup.html', {'form': form})
+
+
+def login_user(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        username = request.POST.get('username')
+        password = request.POST.get('password1')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+        else:
+            messages.error(request, 'Username or password is incorrect')
+    else:
+        form = LoginForm
+    return render(request, 'chat/login.html', {'form': form})
