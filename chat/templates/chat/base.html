@@ -18,9 +18,15 @@
 <header>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li class="right"><a href="{% url 'sign_up' %}">Signup</a></li>
-            <li class="right"><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'front_page' %}">Home</a></li>
+
+            {% if request.user.is_authenticated %}
+                <li class="right"><a href="{% url 'logout' %}">Logout</a></li>
+                <li class="right"><a href="{% url 'rooms' %}">Rooms</a></li>
+            {% else %}
+                <li class="right"><a href="{% url 'sign_up' %}">Signup</a></li>
+                <li class="right"><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
         </ul>
     </nav>
 </header>

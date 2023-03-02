@@ -38,6 +38,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            return redirect('front_page')
         else:
             messages.error(request, 'Username or password is incorrect')
     else:
