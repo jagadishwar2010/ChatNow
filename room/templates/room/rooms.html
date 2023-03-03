@@ -3,16 +3,17 @@
 {% block title %} Rooms {% endblock %}
 
 {% block content %}
-    <div class="p-5 text-center bg-light" style="margin-top: 58px;">
+    <div class="p-5 text-center bg-light">
         <h1 class="mb-3">Rooms</h1>
     </div>
     <div class="container">
         <div class="row">
             {% for room in rooms %}
                 <div class="col-md-3">
-                    <div class="box">{{ room }}
-                        <button class="w-100" type="submit">Join</button>
-                    </div>
+                <div class="box">
+                    <h2>{{ room }}</h2>
+                    <a href="{% url 'room' room.slug %}" class="btn btn-lg btn-success" type="submit">Join</a>
+                </div>
                 </div>
             {% endfor %}
         </div>

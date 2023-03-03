@@ -6,12 +6,13 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: azure;
 }
 
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
 }
 
 nav ul {
@@ -39,6 +40,7 @@ nav li a {
 
 nav li a:hover {
     background-color: #555;
+    color: #cccccc;
 }
 
 main {
@@ -95,4 +97,39 @@ button[type="submit"]:hover {
     color: black;
     font-size: 24px;
     text-align: center;
+}
+
+.chat-window, .send-message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: black;
+}
+
+.chat-message, .new-message{
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lavender;
+    color: black;
+    font-size: 1.15em;
+    margin: 0.75em;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+}
+
+.new-message {
+    display: flex;
 }

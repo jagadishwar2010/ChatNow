@@ -1,0 +1,36 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block title %} {{ room.name }} {% endblock %}
+
+{% block content %}
+    <div class="p-5 text-center bg-light">
+        <h1 class="mb-3">{{ room.name }}</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 chat-window">
+                <div class="chat-message">
+                    <div class="username">Username</div>
+                    <div class="message">Assuming you have a URL path with a slug parameter like this:</div>
+                </div>
+                <div class="chat-message">
+                    <div class="username">Username</div>
+                    <div class="message">Assuming you have a URL path with a slug parameter like this:</div>
+                </div>
+                <div class="chat-message">
+                    <div class="username">Username</div>
+                    <div class="message">Assuming you have a URL path with a slug parameter like this:</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px">
+            <div class="col-lg-6 send-message">
+                <div class="new-message">
+                    <input type="text" style="margin-bottom: unset; margin-right: 5px" name="content" placeholder="Your message...">
+                    <a class="btn btn-success btn-lg" type="submit">Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
